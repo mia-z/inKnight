@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+.partial {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.partial .btn, select, input {
+    margin: 5px 0;
+}
+
+
+/*BOOTSTRAP OVERRIDES*/
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
