@@ -7,7 +7,15 @@ $(document).ready(function () {
             });
         });
     } else {
-        charData = Cookies.get("char");
+        $.get("/./pages/partials/create.html", (data) => {
+            $("#temp-stuff").append(data);
+            $("#create-box").empty();
+        });
+        charData = JSON.parse(Cookies.get("char"));
+        console.log(charData.Name);
+        //globalTicker = setInterval(() => {
+        //    gameTick();
+        //}, 500);
     }
 });
 
@@ -40,9 +48,10 @@ function createChar() {
         "CurrentHealth" : 10,
         "Strength" : 1,
         "Defence" : 1,
-        "Items" : []
+        "Items" : [],
+        "CurrentTick" : 0
     }
     Cookies.set("char", charData);
     console.log(Cookies.get("char"));
-    $("#create-box").remove();
+    $("#create-box").empty();
 }

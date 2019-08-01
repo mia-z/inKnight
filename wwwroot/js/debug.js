@@ -7,5 +7,8 @@ $(document).ready(function () {
         $("#hide-box").on("click", (evt) => {
             $("#debug-box").css("display", "none");
         });
+        $("#stop-tick").on("click", (evt) => {
+            clearInterval(globalTicker);
+        });
     });
 });

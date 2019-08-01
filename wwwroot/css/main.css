@@ -12,6 +12,24 @@
     margin: 5px 0;
 }
 
+.child-partial {
+    display: flex;
+    flex-direction: row;
+}
+
+.nm {
+    margin: 0 0 0 0;
+}
+
+#log-box {
+    min-height: 150px;
+    max-height: 150px;
+}
+
+#log-box option {
+    max-width: 100%;
+    white-space: normal;
+}
 
 /*BOOTSTRAP OVERRIDES*/
 .container-fluid {
@@ -27,4 +45,3 @@
     margin-right: auto;
     margin-left: auto;
 }
-
