@@ -20,7 +20,30 @@ $(document).ready(function () {
         pXp.html(charData.Experience);
         pDef.html(charData.Defence);
         pStr.html(charData.Strength);
-    });
+    }).catch((e) => {
+        console.log("local loading failed, trying another DIR - " + e);
+        $.get("/inKnight/pages/partials/player.html", (data) => {
+            $("#left-col").append(data);
+            pName = $("#name-text");
+            pMaxHp = $("#max-health-text");
+            pHp = $("#current-health-text");
+            pClassType = $("#class-type-text");
+            pLevel = $("#level-text");
+            pGold = $("#gold-text");
+            pXp = $("#xp-text");
+            pStr = $("#strength-text");
+            pDef = $("#defence-text");
+
+            pName.html(charData.Name);
+            pMaxHp.html(charData.Health);
+            pHp.html(charData.CurrentHealth);
+            pClassType.html(charData.ClassType);
+            pLevel.html(charData.Level);
+            pGold.html(charData.Gold);
+            pXp.html(charData.Experience);
+            pDef.html(charData.Defence);
+            pStr.html(charData.Strength);
+        });
 });
 
 //element objects
