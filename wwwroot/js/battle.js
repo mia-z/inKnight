@@ -9,4 +9,24 @@ $(document).ready(function () {
     });
 });
 
+//element objects
 var currentActivity, eName, eHp, eMaxHp;
+
+function createEnemy(name, level, hp, strength, defence, xpReward, goldReward) {
+    let enemyToReturn = {
+        "Name" : name,
+        "Level" : level,
+        "Health" : hp,
+        "CurrentHealth" : hp,
+        "Strength" : strength,
+        "Defence" : defence,
+        "XpReward" : xpReward,
+        "GoldReward" : goldReward
+    }
+    return enemyToReturn;
+}
+
+function updateEnemyInterface(emax, newhp) {
+    eMaxHp.html(emax)
+    eHp.html(newhp);
+}

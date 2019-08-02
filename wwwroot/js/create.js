@@ -13,9 +13,9 @@ $(document).ready(function () {
         });
         charData = JSON.parse(Cookies.get("char"));
         console.log(charData.Name);
-        //globalTicker = setInterval(() => {
-        //    gameTick();
-        //}, 500);
+        globalTicker = setInterval(() => {
+            gameTick();
+        }, 500);
     }
 });
 

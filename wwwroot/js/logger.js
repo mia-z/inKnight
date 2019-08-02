@@ -10,5 +10,5 @@ function logMessage(text, value, callback) {
 
     let o = new Option(text, value);
     $("#log-box").prepend($(o));
-    callback();
+    //callback();
 }

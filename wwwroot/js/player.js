@@ -23,15 +23,35 @@ $(document).ready(function () {
     });
 });
 
+//element objects
 var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef;
 
 function tryLevelUp(player) {
     if (player.Experience > xpTable[player.Level +1]) {
         player.Health += 1 + getRandom(1, 4);
         player.Level += 1;
-        player.Strength += 1 + getRandom(1, 2);
-        player.Defence += 1 + getRandom(1, 2);
+        player.Strength += 1 + getRandom(0, 2);
+        player.Defence += 1 + getRandom(0, 2);
+        player.CurrentHealth = player.Health;
+        logMessage(`Levelled up! New level is ${player.Level}!`);
+        updatePlayerInterface();
         return true;
     }
     return false;
+}
+
+function updatePlayerInterface() {
+    pName.html(charData.Name);
+    pMaxHp.html(charData.Health);
+    pHp.html(charData.CurrentHealth);
+    pClassType.html(charData.ClassType);
+    pLevel.html(charData.Level);
+    pGold.html(charData.Gold);
+    pXp.html(charData.Experience);
+    pDef.html(charData.Defence);
+    pStr.html(charData.Strength);
+}
+
+function playerDamage() {
+    return charData.Strength + getRandom(0, 5);
 }
