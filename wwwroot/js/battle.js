@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("/./pages/partials/battle.html", (data) => {
+    $.get("/inKnight/pages/partials/battle.html", (data) => {
         $("#info-col").append(data);
         currentActivity = $("#current-activity-text");
         eName = $("#enemy-name");

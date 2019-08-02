@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("/./pages/partials/logger.html", (data) => {
+    $.get("/inKnight/pages/partials/logger.html", (data) => {
         $("#logger-col").append(data);
     });
 });

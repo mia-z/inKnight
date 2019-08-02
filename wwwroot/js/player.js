@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("/./pages/partials/player.html", (data) => {
+    $.get("/inKnight/pages/partials/player.html", (data) => {
         $("#left-col").append(data);
         pName = $("#name-text");
         pMaxHp = $("#max-health-text");

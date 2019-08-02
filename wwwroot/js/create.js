@@ -1,6 +1,6 @@
 $(document).ready(function () {
     if (Cookies.get("char") === undefined) {
-        $.get("/./pages/partials/create.html", (data) => {
+        $.get("/inKnight/pages/partials/create.html", (data) => {
             $("#temp-stuff").append(data);
             $("#save-char").on("click", (evt) => {
                 validateCharacter();
