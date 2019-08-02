@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("/./pages/partials/rightbox.html", (data) => {
+    $.get("/.././pages/partials/rightbox.html", (data) => {
         $("#right-col").append(data);
         $("#train-button").on("click", (evt) => {
             currentMode = "train";

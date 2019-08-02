@@ -44,6 +44,7 @@ $(document).ready(function () {
             pDef.html(charData.Defence);
             pStr.html(charData.Strength);
         });
+    });
 });
 
 //element objects
