@@ -1,11 +1,6 @@
 $(document).ready(function () {
     $.get("/./pages/partials/logger.html", (data) => {
         $("#logger-col").append(data);
-    }).catch((e) => {
-        console.log("local loading failed, trying another DIR - " + e);
-        $.get("/inKnight/pages/partials/logger.html", (data) => {
-            $("#logger-col").append(data);
-        });
     });
 });
 

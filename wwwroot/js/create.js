@@ -5,14 +5,6 @@ $(document).ready(function () {
             $("#save-char").on("click", (evt) => {
                 validateCharacter();
             });
-        }).catch((e) => {
-            console.log("local loading failed, trying another DIR - " + e);
-            $.get("/inKnight/pages/partials/create.html", (data) => {
-                $("#temp-stuff").append(data);
-                $("#save-char").on("click", (evt) => {
-                    validateCharacter();
-                });
-            });
         });
     } else {
         $.get("/./pages/partials/create.html", (data) => {

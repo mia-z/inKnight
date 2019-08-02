@@ -6,16 +6,6 @@ $(document).ready(function () {
         //$("#enemy-hp-text")
         eMaxHp = $("#enemy-max-hp");
         eHp = $("#enemy-current-hp");
-    }).catch((e) => {
-        console.log("local loading failed, trying another DIR - " + e);
-        $.get("/inKnight/pages/partials/battle.html", (data) => {
-            $("#info-col").append(data);
-            currentActivity = $("#current-activity-text");
-            eName = $("#enemy-name");
-            //$("#enemy-hp-text")
-            eMaxHp = $("#enemy-max-hp");
-            eHp = $("#enemy-current-hp");
-        });
     });
 });
 
