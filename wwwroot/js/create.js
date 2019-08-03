@@ -42,7 +42,7 @@ function createChar() {
         "Name" : $("#name-input").val(),
         "ClassType" : $("#class-select option:selected").text(),
         "Level" : 1,
-        "Experience" : BASE_XP,
+        "Experience" : xpTable[1],
         "Gold" : 0,
         "Health" : 10,
         "CurrentHealth" : 10,

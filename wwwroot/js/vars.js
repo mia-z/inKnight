@@ -2,16 +2,18 @@ $(document).ready(function () {
     initVars();
 });
 
-const BASE_XP = 20;
+const BASE_XP = 550;
 var xpTable = [];
 
 function initVars() {
     //Initialize the xp table
     for (let x = 0; x < 200; x++) {
         if (x == 0) { xpTable.push(0); }
-        else if (x == 1) { xpTable.push(BASE_XP); }
+        else if (x == 1) { xpTable.push(0); }
         else {
-            xpTable.push(Math.floor(xpTable[x-1] + (xpTable[x-1] * 0.1245)));
+            let mod = x + 80;
+            let pre = Math.floor(Math.pow(BASE_XP * (x * 1.013), (mod * 0.007)));
+            xpTable.push(Math.floor((pre/9) + xpTable[x-1]));
             //xpTable.push(Math.floor((xpTable[x-1] + (BASE_XP * x)) * 1.0075));
         }
     }
