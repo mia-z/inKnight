@@ -10,5 +10,11 @@ $(document).ready(function () {
         $("#stop-tick").on("click", (evt) => {
             clearInterval(globalTicker);
         });
+        $("#start-tick").on("click", (evt) => {
+            globalTicker = setInterval(() => {
+                gameTick();
+            }, 500);
+        });
     });
+    
 });

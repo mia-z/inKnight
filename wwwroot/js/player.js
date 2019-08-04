@@ -26,6 +26,8 @@ $(document).ready(function () {
 //element objects
 var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef;
 
+var tempStr, tempDef;
+
 function tryLevelUp(player) {
     if (player.Experience > xpTable[player.Level +1]) {
         player.Health += 1 + getRandom(1, 4);
@@ -50,6 +52,22 @@ function updatePlayerInterface() {
     pXp.html(charData.Experience);
     pDef.html(charData.Defence);
     pStr.html(charData.Strength);
+}
+
+function updateInventory(id) {
+    let added = false;
+    if (charData.Items.length < 1) {
+        charData.Items.push({"ID": id, "Quantity": 1});
+        added = true;
+    }
+    charData.Items.forEach((slot, index) => {
+        if (slot.ID == id) {
+            charData.Items[index].Quantity++;
+            added = true;
+        }
+    });
+    if (!added)
+        charData.Items.push({"ID": id, "Quantity": 1});
 }
 
 function playerDamage() {

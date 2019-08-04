@@ -10,6 +10,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
 
         <!--Local files-->
         <link rel="stylesheet" href="/.././wwwroot/css/main.css">
@@ -24,10 +25,13 @@
         <main id="main">
             <div class="" id="game-interface">
                 <div class="row w-75">
-                    <div class="col" style="background: rgba(200, 200, 200, 0.5);" id="left-col"></div>
+                    <div class="col nrm" style="background: rgba(200, 200, 200, 0.5);" id="left-col"></div>
                     <div class="col" style="background: rgba(210, 210, 210, 0.5);" id="right-col"></div>
                     <div class="w-100"></div>
-                    <div class="col" style="background: rgba(220, 220, 220, 0.5);" id="info-col"></div>
+                    <div class="col nrm" style="background: rgba(220, 220, 220, 0.5);" id="info-col"></div>
+                    <div class="col" style="background: rgba(210, 210, 210, 0.5);" id="select-col"></div>
+                    <div class="w-100"></div>
+                    <div class="col nrm" style="background: rgba(220, 220, 220, 0.5);" id="actions-col"></div>
                     <div class="col" style="background: rgba(240, 240, 240, 0.5);" id="logger-col"></div>
                 </div>
             </div>
@@ -44,5 +48,7 @@
         <script src="/.././wwwroot/js/player.js"></script>
         <script src="/.././wwwroot/js/battle.js"></script>
         <script src="/.././wwwroot/js/rightbox.js"></script>
+        <script src="/.././wwwroot/js/selectbox.js"></script>
+        <script src="/.././wwwroot/js/actions.js"></script>
     </body>
 </html>
