@@ -31,17 +31,53 @@
     white-space: normal;
 }
 
-/*BOOTSTRAP OVERRIDES*/
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+#select-col {
+    min-height: 150px;
 }
 
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+.shop-box {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: auto;
+    max-height: 150px;
 }
+
+.nrm {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.menu-btn {
+    margin: 2.5px 0;
+}
+
+.action-box {
+    display: flex;
+    flex-flow: row wrap;
+    background: rgba(85, 72, 156, 0.5);
+    min-height: 100%;
+}
+
+.left-action-box {
+    min-width: 30%;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-action-box {
+    padding-right: 15px;
+    min-width: 70%;
+    max-width: 70%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.action-buttons {
+    padding-left: 15px; 
+}
+
+#attack-box, #skills-box, #spells-box, #items-box {
+    min-width: 100%;
+}
+/*BOOTSTRAP OVERRIDES*/
