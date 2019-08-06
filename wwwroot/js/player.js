@@ -59,6 +59,7 @@ function updateInventory(id) {
     if (charData.Items.length < 1) {
         charData.Items.push({"ID": id, "Quantity": 1});
         added = true;
+        return;
     }
     charData.Items.forEach((slot, index) => {
         if (slot.ID == id) {

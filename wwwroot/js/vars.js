@@ -33,20 +33,29 @@ function useItem(id) {
             charData.CurrentHealth += 50;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
+            updatePlayerInterface();
+            logMessage(`Used ${itemList[id].Name}, gained 50 health!`);
+            showItems();
             break;
         case 1: //potion
             charData.CurrentHealth += 150;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
+            updatePlayerInterface();
+            logMessage(`Used ${itemList[id].Name}, gained 150 health!`);
             break;
         case 2: //high potion
             charData.CurrentHealth += 500;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
+            updatePlayerInterface();
+            logMessage(`Used ${itemList[id].Name}, gained 500 health!`);
             break;
         case 3: //strength potion
+            logMessage(`Used ${itemList[id].Name}, strength boosted temporarily! `);
             break;
         case 4: //defence potion
+            logMessage(`Used ${itemList[id].Name}, defence boosted temporarily `);
             break;
 
     }
@@ -56,6 +65,7 @@ function getRandom(min, max) {
     return Math.floor(rng() * (+max - +min)) + +min;
 }
 
+//Advanced random number generator
 //credit:
 //https://github.com/davidbau/seedrandom
 var seed = Math.seedrandom();        // Use prng with an automatic seed.

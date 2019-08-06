@@ -2,21 +2,6 @@
     box-sizing: border-box;
 }
 
-.partial {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-}
-
-.partial .btn, select, input {
-    margin: 5px 0;
-}
-
-.child-partial {
-    display: flex;
-    flex-direction: row;
-}
-
 .nm {
     margin: 0 0 0 0;
 }
@@ -35,8 +20,9 @@
     min-height: 150px;
 }
 
-.shop-box {
+.select-box {
     display: flex;
+    justify-content: space-between;
     flex-flow: row wrap;
     overflow: auto;
     max-height: 150px;
@@ -54,7 +40,6 @@
 .action-box {
     display: flex;
     flex-flow: row wrap;
-    background: rgba(85, 72, 156, 0.5);
     min-height: 100%;
 }
 
@@ -70,8 +55,7 @@
     min-width: 70%;
     max-width: 70%;
     display: flex;
-    flex-flow: row wrap;
-}
+    flex-flow: row wrap;}
 
 .action-buttons {
     padding-left: 15px; 
@@ -79,5 +63,22 @@
 
 #attack-box, #skills-box, #spells-box, #items-box {
     min-width: 100%;
+    max-height: 200px;
+    overflow: auto;
+    justify-content: space-evenly;
 }
+
+.inventory-button {
+    max-height: 35px;
+    margin: 3px 6px;
+}
+
+button[id^="item-buy-button-"] {
+    margin: 3px 0px;
+}
+
+.right-action-box-wrapper {
+    background: none;
+}
+
 /*BOOTSTRAP OVERRIDES*/
