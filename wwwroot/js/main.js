@@ -12,6 +12,11 @@ var globalTicker;
 function gameTick() {
     charData.CurrentTick++;
     Cookies.set("char", charData);
+    if (charData.SkillPoints == 0) {
+        $(".stat-up-button").css("display", "none");
+    } else {
+        $(".stat-up-button").css("display", "block");
+    }
 
     if (currentEnemy === null || currentEnemy.CurrentHealth < 1) {
         switch(currentMode) {

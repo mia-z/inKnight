@@ -12,7 +12,7 @@ $(document).ready(function () {
             $("#create-box").empty();
         });
         charData = JSON.parse(Cookies.get("char"));
-        console.log(charData.Name);
+        console.log(charData.SkillPoints);
         globalTicker = setInterval(() => {
             gameTick();
         }, 500);
@@ -49,7 +49,8 @@ function createChar() {
         "Strength" : 1,
         "Defence" : 1,
         "Items" : [],
-        "CurrentTick" : 0
+        "CurrentTick" : 0,
+        "SkillPoints" : 0
     }
     Cookies.set("char", charData);
     console.log(Cookies.get("char"));

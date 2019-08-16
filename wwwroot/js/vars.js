@@ -34,7 +34,7 @@ function useItem(id) {
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, gained 50 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 50 health!`);
             showItems();
             break;
         case 1: //potion
@@ -42,14 +42,14 @@ function useItem(id) {
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, gained 150 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 150 health!`);
             break;
         case 2: //high potion
             charData.CurrentHealth += 500;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, gained 500 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 500 health!`);
             break;
         case 3: //strength potion
             logMessage(`Used ${itemList[id].Name}, strength boosted temporarily! `);

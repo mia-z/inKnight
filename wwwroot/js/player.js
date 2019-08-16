@@ -10,6 +10,11 @@ $(document).ready(function () {
         pXp = $("#xp-text");
         pStr = $("#strength-text");
         pDef = $("#defence-text");
+        pSp = $("#skill-point-text");
+
+        btnStrUp = $("#strength-up-button");
+        btnDefUp = $("#defence-up-button");
+        $(".stat-up-button").on("click", evt => { statUp(evt); });
 
         pName.html(charData.Name);
         pMaxHp.html(charData.Health);
@@ -20,11 +25,15 @@ $(document).ready(function () {
         pXp.html(charData.Experience);
         pDef.html(charData.Defence);
         pStr.html(charData.Strength);
+        pSp.html(charData.SkillPoints);
     });
 });
 
 //element objects
-var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef;
+//texts
+var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef, pSp;
+//buttons
+var btnStrUp, btnDefUp;
 
 var tempStr, tempDef;
 
@@ -32,11 +41,13 @@ function tryLevelUp(player) {
     if (player.Experience > xpTable[player.Level +1]) {
         player.Health += 1 + getRandom(1, 4);
         player.Level += 1;
-        player.Strength += 1 + getRandom(0, 2);
-        player.Defence += 1 + getRandom(0, 2);
+        //player.Strength += 1 + getRandom(0, 2);
+        //player.Defence += 1 + getRandom(0, 2);
         player.CurrentHealth = player.Health;
-        logMessage(`Levelled up! New level is ${player.Level}!`);
+        player.SkillPoints += 1;
+        logMessage(`Levelled up! New level is ${player.Level} and you gained 1 skill point!`);
         updatePlayerInterface();
+        $(".stat-up-button").css("display", "block");
         return true;
     }
     return false;
@@ -52,6 +63,7 @@ function updatePlayerInterface() {
     pXp.html(charData.Experience);
     pDef.html(charData.Defence);
     pStr.html(charData.Strength);
+    pSp.html(charData.SkillPoints);
 }
 
 function updateInventory(id) {
@@ -69,6 +81,24 @@ function updateInventory(id) {
     });
     if (!added)
         charData.Items.push({"ID": id, "Quantity": 1});
+}
+
+function statUp(event) {
+    let stat = event.target.parentElement.id;
+    switch (stat) {
+        case "strength-up-button": 
+            charData.Strength += 1;
+            charData.SkillPoints -= 1;
+            break;
+        case "defence-up-button":
+            charData.Defence += 1;
+            charData.SkillPoints -= 1;
+            break;
+    }
+    if (charData.SkillPoints < 1) {
+        $(".stat-up-button").css("display", "none");
+    }
+    updatePlayerInterface();
 }
 
 function playerDamage() {
