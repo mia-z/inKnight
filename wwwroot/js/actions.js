@@ -75,11 +75,7 @@ function showItems() {
         "</button>");
         $("#inventory-button-"+index).on("click", (evt) => {
             let id = charData.Items[index].ID;
-            charData.Items[index].Quantity -= 1;
-            if (charData.Items[index].Quantity < 1) {
-                charData.Items.splice(index, 1);
-            }
-            useItem(id);
+            if (useItem(id)) removeItem(index);
             showItems();
         });
     });

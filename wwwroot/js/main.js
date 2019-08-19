@@ -21,22 +21,17 @@ function gameTick() {
     if (currentEnemy === null || currentEnemy.CurrentHealth < 1) {
         switch(currentMode) {
             case "train": 
-                currentEnemy = createEnemy(
-                    "Dummy", charData.Level, 20*charData.Level, 0, 1, 
-                    getRandom(0, 15), getRandom(0, 20)
-                );
-                eHp.html(currentEnemy.CurrentHealth);
-                eMaxHp.html(currentEnemy.Health);
-                eName.html(currentEnemy.Name);
+                generateEnemy($("input[name='training-type']:checked").val());
                 break;
         }
     }
+
     switch(currentMode) {
         case "train":
             currentEnemy.CurrentHealth -= playerDamage();
-            updateEnemyInterface(currentEnemy.Health, currentEnemy.CurrentHealth);
+            updateEnemyInterface(currentEnemy);
             if (currentEnemy.CurrentHealth < 1) {
-                updateEnemyInterface(currentEnemy.Health, 0);
+                updateEnemyInterface(currentEnemy);
                 charData.Experience += currentEnemy.XpReward;
                 charData.Gold += currentEnemy.GoldReward;
                 logMessage(`Defeated dummy! Gained ${currentEnemy.GoldReward} gold and ${currentEnemy.XpReward} xp!`);
@@ -44,11 +39,7 @@ function gameTick() {
                 updatePlayerInterface();
                 clearInterval(globalTicker);
                 setTimeout(() => {
-                    currentEnemy = createEnemy(
-                        "Dummy", charData.Level, 20*charData.Level, 0, 1, 
-                        getRandom(0, 15), getRandom(0, 20)
-                    );
-                    updateEnemyInterface(currentEnemy.Health, currentEnemy.CurrentHealth);
+                    generateEnemy($("input[name='training-type']:checked").val());
                     globalTicker = setInterval(() => {
                         gameTick();
                     }, 500);

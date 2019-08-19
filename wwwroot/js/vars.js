@@ -12,6 +12,9 @@ var itemList = [
     {"Name" : "Defence Potion", "Price" : 500} 
 ];
 
+var tempStrActive = false;
+var tempDefActive = false;
+
 function initVars() {
     //Initialize the xp table
     for (let x = 0; x < 200; x++) {
@@ -30,34 +33,72 @@ function initVars() {
 function useItem(id) {
     switch(id) {
         case 0: //low potion
+            if (charData.CurrentHealth == charData.Health) {
+                logMessage(`Your health is already full!`);
+                return false;
+            }
             charData.CurrentHealth += 50;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
             logMessage(`Used ${itemList[id].Name}, restored 50 health!`);
-            showItems();
-            break;
+            return true;
         case 1: //potion
+            if (charData.CurrentHealth == charData.Health) {
+                logMessage(`Your health is already full!`);
+                return false;
+            }
             charData.CurrentHealth += 150;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
             logMessage(`Used ${itemList[id].Name}, restored 150 health!`);
-            break;
+            return true;
         case 2: //high potion
+            if (charData.CurrentHealth == charData.Health) {
+                logMessage(`Your health is already full!`);
+                return false;
+            }
             charData.CurrentHealth += 500;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
             logMessage(`Used ${itemList[id].Name}, restored 500 health!`);
-            break;
+            return true;
         case 3: //strength potion
+            if (tempStrActive) {
+                logMessage(`Strength boost already active!`);
+                return false;
+            }
+            tempStr = 100;
+            tempStrActive = true;
+            setTimeout(() => {
+                tempStr = 0;
+                tempStrActive = false;
+                logMessage(`Strength returned to normal! `);
+            }, 30*1000)
             logMessage(`Used ${itemList[id].Name}, strength boosted temporarily! `);
-            break;
+            return true;
         case 4: //defence potion
+            if (tempDefActive) {
+                logMessage(`Defence boost already active!`);
+                return false;
+            }
+            tempDefActive = true;
+            setTimeout(() => {
+                tempDefActive = false;
+                logMessage(`Defence returned to normal! `);
+            }, 30*1000)
             logMessage(`Used ${itemList[id].Name}, defence boosted temporarily `);
-            break;
+            return true;
+    }
+}
 
+function removeItem(index) {
+    console.log(charData.itemList);
+    charData.Items[index].Quantity -= 1;
+    if (charData.Items[index].Quantity < 1) {
+        charData.Items.splice(index, 1);
     }
 }
 
@@ -69,9 +110,7 @@ function getRandom(min, max) {
 //credit:
 //https://github.com/davidbau/seedrandom
 var seed = Math.seedrandom();        // Use prng with an automatic seed.
-
 var rng = new Math.seedrandom(seed); // A new prng with the same seed.
-
 function reseed(event, count) {      // Define a custom entropy collector.
   var t = [];
   function w(e) {

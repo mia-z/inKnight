@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $.get("/./pages/partials/player.html", (data) => {
         $("#left-col").append(data);
+        $.get("/./pages/partials/player_buffs.html", (data) => {
+            $("#buffs-row").append(data);
+        });
         pName = $("#name-text");
         pMaxHp = $("#max-health-text");
         pHp = $("#current-health-text");
@@ -35,7 +38,8 @@ var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef, pSp;
 //buttons
 var btnStrUp, btnDefUp;
 
-var tempStr, tempDef;
+var tempStr = 0;
+var tempDef = 0;
 
 function tryLevelUp(player) {
     if (player.Experience > xpTable[player.Level +1]) {
@@ -66,6 +70,10 @@ function updatePlayerInterface() {
     pSp.html(charData.SkillPoints);
 }
 
+function updateBuffs() {
+    
+}
+
 function updateInventory(id) {
     let added = false;
     if (charData.Items.length < 1) {
@@ -84,7 +92,7 @@ function updateInventory(id) {
 }
 
 function statUp(event) {
-    let stat = event.target.parentElement.id;
+    let stat = event.currentTarget.id;
     switch (stat) {
         case "strength-up-button": 
             charData.Strength += 1;
@@ -102,5 +110,7 @@ function statUp(event) {
 }
 
 function playerDamage() {
-    return charData.Strength + getRandom(0, 5);
+    let dmg = charData.Strength + getRandom(0, charData.Strength*0.8);
+
+    return dmg;
 }
