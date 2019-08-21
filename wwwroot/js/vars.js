@@ -34,62 +34,65 @@ function useItem(id) {
     switch(id) {
         case 0: //low potion
             if (charData.CurrentHealth == charData.Health) {
-                logMessage(`Your health is already full!`);
+                logMessage(`Your health is already full!`, null, "blue");
                 return false;
             }
             charData.CurrentHealth += 50;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, restored 50 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 50 health!`, null, "blue");
             return true;
         case 1: //potion
             if (charData.CurrentHealth == charData.Health) {
-                logMessage(`Your health is already full!`);
+                logMessage(`Your health is already full!`, null, "blue");
                 return false;
             }
             charData.CurrentHealth += 150;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, restored 150 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 150 health!`, null, "blue");
             return true;
         case 2: //high potion
             if (charData.CurrentHealth == charData.Health) {
-                logMessage(`Your health is already full!`);
+                logMessage(`Your health is already full!`, null, "blue");
                 return false;
             }
             charData.CurrentHealth += 500;
             if (charData.CurrentHealth > charData.Health) 
                 charData.CurrentHealth = charData.Health;
             updatePlayerInterface();
-            logMessage(`Used ${itemList[id].Name}, restored 500 health!`);
+            logMessage(`Used ${itemList[id].Name}, restored 500 health!`, null, "blue");
             return true;
         case 3: //strength potion
             if (tempStrActive) {
-                logMessage(`Strength boost already active!`);
+                logMessage(`Strength boost already active!`, null, "blue");
                 return false;
             }
-            tempStr = 100;
+            $("#str-buff-text").show();
             tempStrActive = true;
             setTimeout(() => {
                 tempStr = 0;
                 tempStrActive = false;
-                logMessage(`Strength returned to normal! `);
+                logMessage(`Strength returned to normal! `, null, "blue");
+                $("#str-buff-text").hide();
             }, 30*1000)
-            logMessage(`Used ${itemList[id].Name}, strength boosted temporarily! `);
+            logMessage(`Used ${itemList[id].Name}, strength boosted temporarily! `, null, "blue");
             return true;
         case 4: //defence potion
             if (tempDefActive) {
-                logMessage(`Defence boost already active!`);
+                logMessage(`Defence boost already active!`, null, "blue");
                 return false;
             }
+            $("#def-buff-text").show();
             tempDefActive = true;
             setTimeout(() => {
                 tempDefActive = false;
-                logMessage(`Defence returned to normal! `);
+                logMessage(`Defence returned to normal! `, null, "blue");
+                $("#def-buff-text").hide();
             }, 30*1000)
-            logMessage(`Used ${itemList[id].Name}, defence boosted temporarily `);
+            logMessage(`Used ${itemList[id].Name}, defence boosted temporarily `, null, "blue");
             return true;
     }
 }

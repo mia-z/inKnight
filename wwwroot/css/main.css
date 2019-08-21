@@ -97,4 +97,8 @@ button[id^="item-buy-button-"] {
     left: -3px;
 }
 
+.buff-text {
+    display: none;
+}
+
 /*BOOTSTRAP OVERRIDES*/

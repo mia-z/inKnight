@@ -34,7 +34,7 @@ function gameTick() {
                 updateEnemyInterface(currentEnemy);
                 charData.Experience += currentEnemy.XpReward;
                 charData.Gold += currentEnemy.GoldReward;
-                logMessage(`Defeated dummy! Gained ${currentEnemy.GoldReward} gold and ${currentEnemy.XpReward} xp!`);
+                logMessage(`Defeated dummy! Gained ${currentEnemy.GoldReward} gold and ${currentEnemy.XpReward} xp!`, null, "green");
                 tryLevelUp(charData);
                 updatePlayerInterface();
                 clearInterval(globalTicker);

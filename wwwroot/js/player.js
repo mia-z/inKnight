@@ -38,6 +38,8 @@ var pName, pMaxHp, pHp, pClassType, pLevel, pGold, pXp, pStr, pDef, pSp;
 //buttons
 var btnStrUp, btnDefUp;
 
+const BASE_CRIT = 5;
+
 var tempStr = 0;
 var tempDef = 0;
 
@@ -110,7 +112,21 @@ function statUp(event) {
 }
 
 function playerDamage() {
+    //Base damage output of the player - scaled by strength stat
     let dmg = charData.Strength + getRandom(0, charData.Strength*0.8);
 
-    return dmg;
+    //Damage modified by strength potion - just increases the upper bounds by a LOT
+    if (tempStrActive) {
+        dmg += getRandom(dmg * 0.3, dmg * 1.1);
+    }
+
+    //Calculates crit chance - as of now this doubles the hit damage
+    let critRoll = getRandom(0, 100);
+    let modCrit = BASE_CRIT;
+    if (critRoll <= modCrit) {
+        dmg = dmg * 2;
+        logMessage(`Critical hit for ${Math.floor(dmg/2)} extra damage!`, null, "red");
+    }
+
+    return Math.floor(dmg);
 }

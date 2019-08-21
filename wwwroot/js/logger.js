@@ -7,14 +7,17 @@ $(document).ready(function () {
 
 var logLines;
 
-function logMessage(text, value, callback) {
-    value = (typeof value === "undefined") ? "null" : value;
-    callback = (typeof callback === "undefined") ? "null" : callback;
+function logMessage(text, value, color, callback) {
+    value = (typeof value === undefined) ? undefined : value;
+    color = (typeof color === undefined) ? undefined : color;
+    callback = (typeof callback === undefined) ? undefined : callback;
 
     let o = new Option(text, value);
+    if (color !== undefined) 
+        $(o).css("color", color);
     $("#log-box").prepend($(o));
     if (logLines.length > 20) {
         logLines[logLines.length-1].remove();
     }
-    //callback();
+    if (callback !== undefined) callback();
 }
