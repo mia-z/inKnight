@@ -23,11 +23,18 @@
 
 .select-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row wrap;
     overflow: auto;
     max-height: 150px;
     width: 100%;
+}
+
+.nm {
+    margin-right: 0;
+    padding-right: 0;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .nrm {
@@ -101,4 +108,13 @@ button[id^="item-buy-button-"] {
     display: none;
 }
 
+#adventure-button {
+    margin: 3px 0;
+}
+
 /*BOOTSTRAP OVERRIDES*/
+
+.progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+}

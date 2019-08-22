@@ -8,12 +8,10 @@ $(document).ready(function () {
             $("#debug-box").css("display", "none");
         });
         $("#stop-tick").on("click", (evt) => {
-            clearInterval(globalTicker);
+            stopGame();
         });
         $("#start-tick").on("click", (evt) => {
-            globalTicker = setInterval(() => {
-                gameTick();
-            }, 500);
+            startGame();
         });
     });
     

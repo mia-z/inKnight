@@ -9,6 +9,16 @@ var currentEnemy = null;
 
 var globalTicker;
 
+function startGame() {
+    globalTicker = setInterval(() => {
+        gameTick();
+    }, 500);
+}
+
+function stopGame() {
+    clearInterval(globalTicker);
+}
+
 function gameTick() {
     charData.CurrentTick++;
     Cookies.set("char", charData);
@@ -40,9 +50,7 @@ function gameTick() {
                 clearInterval(globalTicker);
                 setTimeout(() => {
                     generateEnemy($("input[name='training-type']:checked").val());
-                    globalTicker = setInterval(() => {
-                        gameTick();
-                    }, 500);
+                    startGame();
                 }, 750)
             }
             break;

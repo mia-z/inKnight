@@ -19,6 +19,8 @@ $(document).ready(function () {
                 }
             });
         });
-        
+        $("#adventure-button").on("click", (evt) => {
+            $("#adventure-modal").modal("show");
+        });
     });
 });

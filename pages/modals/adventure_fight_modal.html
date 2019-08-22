@@ -1,0 +1,78 @@
+<div id="adventure-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" style="min-height: 300px">
+                        <!--PLAYER SIDE-->
+                        <div class="col-md-6" id="adv-player-col" style="background-color: rgba(0,255,0,0.2);">
+                            <!--TOP HALF-->
+                            <div class="row align-items-end" style="min-height: 47.5%;">
+                                <div class="container-fluid">
+                                    <div class="col-md-12">
+                                        <div class="row justify-content-end">player hp</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--BAR-->
+                            <div class="row" style="min-height: 5%;">
+                                <div class="col-md-12 nm">
+                                    <div class="progress md-progress" style="margin: 0;">
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" 
+                                        id="player-progress"
+                                        role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--BOTTOM HALF-->
+                            <div class="row" style="min-height: 47.5%;">
+                                <div class="container-fluid">
+                                    <div class="col-md-12 align-self-end">
+                                        <div class="row">
+                                            <button class="btn btn-primary" id="adv-attack-button">Attack</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--ENEMY SIDE-->
+                        <div class="col-md-6" id="adv-enemy-col" style="background-color: rgba(255,0,0,0.2)">
+                            <!--TOP HALF-->
+                            <div class="row align-items-end" style="min-height: 47.5%;">
+                                <div class="container-fluid">
+                                    <div class="col-md-12">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--BAR-->
+                            <div class="row" style="min-height: 5%;">
+                                <div class="col-md-12 nm">
+                                    <div class="progress" style="direction: rtl;">
+                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" 
+                                        id="enemy-progress"
+                                        role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--BOTTOM HALF-->
+                            <div class="row" style="min-height: 47.5%;">
+                                <div class="container-fluid">
+                                    <div class="col-md-12">
+                                        <div class="row">enemy</div>
+                                        <div class="row">health</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

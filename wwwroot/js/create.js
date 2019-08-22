@@ -13,9 +13,7 @@ $(document).ready(function () {
         });
         charData = JSON.parse(Cookies.get("char"));
         console.log(charData.SkillPoints);
-        globalTicker = setInterval(() => {
-            gameTick();
-        }, 500);
+        startGame();
     }
 });
 

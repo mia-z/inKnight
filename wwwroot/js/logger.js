@@ -9,12 +9,11 @@ var logLines;
 
 function logMessage(text, value, color, callback) {
     value = (typeof value === undefined) ? undefined : value;
-    color = (typeof color === undefined) ? undefined : color;
+    color = (typeof color === undefined) ? "black" : color;
     callback = (typeof callback === undefined) ? undefined : callback;
 
     let o = new Option(text, value);
-    if (color !== undefined) 
-        $(o).css("color", color);
+    $(o).css("color", color);
     $("#log-box").prepend($(o));
     if (logLines.length > 20) {
         logLines[logLines.length-1].remove();
