@@ -31,7 +31,7 @@ function gameTick() {
     if (currentEnemy === null || currentEnemy.CurrentHealth < 1) {
         switch(currentMode) {
             case "train": 
-                generateEnemy($("input[name='training-type']:checked").val());
+                currentEnemy = generateEnemy($("input[name='training-type']:checked").val());
                 break;
         }
     }

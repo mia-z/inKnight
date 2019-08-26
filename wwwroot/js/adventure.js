@@ -4,12 +4,20 @@ $(document).ready(function () {
         $("#adventure-modal").modal({
             backdrop: "static",
             keyboard: false,
-            show: true
+            show: false
         });
         $("#adventure-modal").on("shown.bs.modal", (evt) => {
             stopGame();
+            setTimeout(() => {
+                startPlayerTick();
+                startEnemyTick();
+            }, 500);
         });
         $("#adventure-modal").on("hidden.bs.modal", (evt) => {
+            clearTimeout(enemyTicker);
+            clearTimeout(playerTicker);
+            playerTickProgress = 0;
+            enemyTickProgress = 0;
             startGame();
         });
 
@@ -26,8 +34,6 @@ $(document).ready(function () {
         });
         disableButton(advPlayerAttackButton);
     });
-    startPlayerTick();
-    startEnemyTick();
 });
 
 const BASE_SPEED = 30;
@@ -47,7 +53,6 @@ function startPlayerTick() {
 }
 
 function playerTick(t) {
-    console.log(t);
     if (t == 100) {
         clearInterval(enemyTicker);
         clearInterval(playerTicker);
@@ -64,7 +69,6 @@ function startEnemyTick() {
 }
 
 function enemyTick(t) {
-    console.log(t);
     if (t == 100) {
         console.log("enemy attacked! Ouch!");
         enemyTickProgress = 0;

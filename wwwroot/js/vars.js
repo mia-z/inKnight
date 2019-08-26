@@ -22,7 +22,7 @@ function initVars() {
         else if (x == 1) { xpTable.push(0); }
         else {
             let mod = x + 80;
-            let pre = Math.floor(Math.pow(BASE_XP * (x * 1.013), (mod * 0.007)));
+            let pre = Math.floor(Math.pow(BASE_XP * (x * 1.016), (mod * 0.008)));
             xpTable.push(Math.floor((pre/9) + xpTable[x-1]));
             //xpTable.push(Math.floor((xpTable[x-1] + (BASE_XP * x)) * 1.0075));
         }
@@ -43,7 +43,7 @@ function useItem(id) {
             updatePlayerInterface();
             logMessage(`Used ${itemList[id].Name}, restored 50 health!`, null, "blue");
             return true;
-        case 1: //potion
+        case 1: //potion    
             if (charData.CurrentHealth == charData.Health) {
                 logMessage(`Your health is already full!`, null, "blue");
                 return false;
